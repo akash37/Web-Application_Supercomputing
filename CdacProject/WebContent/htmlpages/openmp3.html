@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         $(document).ready(function(){
+            $("#page4").click(function(){
+                $('#content').load('htmlpages//openmp4.html');
+            }); 
+          });    
+         $(document).ready(function(){
+             $("#page2").click(function(){
+                 $('#content').load('htmlpages//openmp2.html');
+             }); 
+           });
+      </script>
+      </style>
+   </head>
+   <body>
+<p><b>OpenMP Programming Model</b><br>
+Shared Memory Model:<br>
+	OpenMP is designed for multi-processor/core, shared memory machines.<br>
+Thread Based Parallelism:<br>
+	OpenMP programs accomplish parallelism exclusively through the use of threads.<br>
+A thread of execution is the smallest unit of processing that can be scheduled by an operating system. The idea of a subroutine that can be scheduled to run autonomously might help explain what a thread is.<br>
+Threads exist within the resources of a single process. Without the process, they cease to exist.<br>
+Typically, the number of threads match the number of machine processors/cores. However, the actual use of threads is up to the application.<br>
+OpenMP is an explicit (not automatic) programming model, offering the programmer full control over parallelization.<br>
+Parallelization can be as simple as taking a serial program and inserting compiler directive...<br>
+Or as complex as inserting subroutines to set multiple levels of parallelism, locks and even nested locks.<br>
+Compiler Directive Based:<br>
+	Most OpenMP parallelism is specified through the use of compiler directives which are imbedded in C/C++ or Fortran source code.<br>
+Fork - Join Model:<br>
+	OpenMP uses the fork-join model of parallel execution:<br> 
+All OpenMP programs begin as a single process: the master thread. The master thread executes sequentially until the first parallel region construct is encountered.
+FORK: the master thread then creates a team of parallel threads.<br>
+The statements in the program that are enclosed by the parallel region construct are then executed in parallel among the various team threads.<br>
+JOIN: When the team threads complete the statements in the parallel region construct, they synchronize and terminate, leaving only the master thread.<br>
+The number of parallel regions and the threads that comprise them are arbitrary.<br>
+</p>
+<input type='button' value='Previous' id="page2">
+<input type='button' value='Next' id="page4">
+ </body>
+</html>

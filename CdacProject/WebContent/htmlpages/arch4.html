@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+      $(document).ready(function(){
+          $("#next").click(function(){
+              $('#content').load('htmlpages//arch5.html');
+          }); 
+        });
+         $(document).ready(function(){
+             $("#prev").click(function(){
+                 $('#content').load('htmlpages//arch3.html');
+             }); 
+           });
+      </script>
+   </head>
+   <body>
+    <p><b>Distributed Memory</b>
+<strong>General Characteristics:</strong>
+<UL>
+<LI>Like shared memory systems, distributed memory systems vary widely but 
+    share a common characteristic. Distributed memory systems require a 
+    communication network to connect inter-processor memory.
+
+
+
+<LI>Processors have their own local memory.  Memory addresses in one 
+    processor do not map to another processor, so there is no concept of
+    global address space across all processors.
+
+<LI>Because each processor has its own local memory, it operates 
+    independently. Changes it makes to its local memory have no effect
+    on the memory of other processors.  Hence, the concept of cache
+    coherency does not apply.
+
+<LI>When a processor needs access to data in another processor, it is 
+    usually the task of the programmer to explicitly define how and when
+    data is communicated.  Synchronization between tasks is likewise the
+    programmer's responsibility.
+
+<LI>The network "fabric" used for data transfer varies widely, though it can
+    be as simple as Ethernet.
+</UL><br>
+<img src="images//distributed_mem.gif"/>
+</p>
+<input type='button' value='Previous' id="prev">
+<input type='button' value='Next' id="next">
+ </body>
+</html>

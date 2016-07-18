@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         $(document).ready(function(){
+            $("#next").click(function(){
+                $('#content').load('htmlpages//mpi3.html');
+            }); 
+          });
+         
+         $(document).ready(function(){
+             $("#prev").click(function(){
+                 $('#content').load('htmlpages//mpi1.html');
+             }); 
+           });
+      </script>
+      <style type="text/css">
+      tab1{padding-left:8em;}
+      </style>
+   </head>
+   <body>
+      <p><b>Programming Model:</b><br>
+a)Originally, MPI was designed for distributed memory architectures, which were becoming increasingly popular at that time (1980s - early 1990s).<br>
+b)As architecture trends changed, shared memory SMPs were combined over networks creating hybrid distributed memory / shared memory systems.<br>
+c)MPI implementors adapted their libraries to handle both types of underlying memory architectures seamlessly. They also adapted/developed ways of handling different interconnects and protocols<br>
+d)Today, MPI runs on virtually any hardware platform:<br>
+	Distributed Memory<br>
+	Shared Memory<br>
+	Hybrid<br>
+e)The programming model clearly remains a distributed memory model however, regardless of the underlying physical architecture of the machine.<br>
+f)All parallelism is explicit: the programmer is responsible for correctly identifying parallelism and implementing parallel algorithms using MPI constructs.<br>
+ 	</p>
+<input type='button' value='Previous' id="prev">
+<input type='button' value='Next' id="next">
+ </body>
+</html>

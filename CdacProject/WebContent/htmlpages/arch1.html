@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         $(document).ready(function(){
+            $("#next").click(function(){
+                $('#content').load('htmlpages//arch2.html');
+            }); 
+          });
+      </script>
+   </head>
+   <body>
+    <p><b>Shared Memory</b>
+Shared memory parallel computers vary widely, but generally have in common 
+the ability for all processors to access all memory as global address space. 
+Multiple processors can operate independently but share the same memory 
+resources.
+Changes in a memory location effected by one processor are visible to all
+other processors.
+Historically, shared memory machines have been classified as  
+ and, based upon memory access times.<br><br>
+<strong>Uniform Memory Access (UMA):</strong>
+  <UL>
+   <LI>Most commonly represented today by Symmetric Multiprocessor 
+       machines
+  <LI>Identical processors 
+    <LI>Equal access and access times to memory 
+   <LI>Sometimes called CC-UMA - Cache Coherent UMA.
+        Cache coherent means if one processor updates a location in shared 
+        memory, all 
+        the other processors know about the update.  Cache coherency is 
+        accomplished at the hardware level. 
+</UL>
+<img src="images//shared_mem.gif"/><br>
+</p>
+<input type='button' value='Next' id="next">
+ </body>
+</html>

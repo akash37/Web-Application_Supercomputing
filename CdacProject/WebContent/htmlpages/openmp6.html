@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         $(document).ready(function(){
+            $("#page7").click(function(){
+                $('#content').load('htmlpages//openmp7.html');
+            }); 
+          });    
+         $(document).ready(function(){
+             $("#page5").click(function(){
+                 $('#content').load('htmlpages//openmp5.html');
+             }); 
+           });
+      </script>
+   </head>
+   <body>
+<p>
+<b>Synchronization Constructs</b>
+The MASTER directive<br>
+	The MASTER directive specifies a region that is to be executed only by the master thread of the team. All other threads on the team skip this section of code<br>
+The SINGLE directive<br>
+	a)The SINGLE directive specifies that the enclosed code is to be executed by only one thread in the team<br>
+	b)May be useful when dealing with sections of code that are not thread safe (such as I/O)<br>
+The CRITICAL directive<br>
+	The CRITICAL directive specifies a region of code that must be executed by only one thread at a time<br>
+	If a thread is currently executing inside a CRITICAL region and another thread reaches that<br>
+	CRITICAL region and attempts to execute it, it will block until the first thread exits that CRITICAL region.<br>
+</p>
+<a href="https://computing.llnl.gov/tutorials/openMP/">For more</a><br><br>
+<input type='button' value='Previous' id="page5">
+ </body>
+</html>

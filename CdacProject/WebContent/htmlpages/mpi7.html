@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         $(document).ready(function(){
+             $("#prev").click(function(){
+                 $('#content').load('htmlpages//mpi6.html');
+             }); 
+           });
+      </script>
+   </head>
+   <body>
+ <p>
+<b>Collective Communication Routines</b><br>
+		Types of Collective Operations: <br>
+
+		Synchronization - processes wait until all members of the group have reached the synchronization point.<br>
+		Data Movement - broadcast, scatter/gather, all to all.<br>
+		Collective Computation (reductions) - one member of the group collects data from the other members and performs an operation (min, max, add, multiply, etc.) on that data.<br>
+ 		Scope:<br>
+
+		Collective communication routines must involve all processes within the scope of a communicator.
+		All processes are by default, members in the communicator MPI_COMM_WORLD.
+		Additional communicators can be defined by the programmer. See the Group and Communicator Management Routines section for details.
+		Unexpected behavior, including program failure, can occur if even one task in the communicator doesn't participate.
+		It is the programmer's responsibility to ensure that all processes within a communicator participate in any collective operations.
+		 Programming Considerations and Restrictions:<br>
+		Collective communication routines do not take message tag arguments.
+		Collective operations within subsets of processes are accomplished by first partitioning the subsets into new groups and then attaching the new groups to new communicators (discussed in the Group and Communicator Management Routines section).
+		Can only be used with MPI predefined datatypes - not with MPI Derived Data Types.
+		MPI-2 extended most collective operations to allow data movement between intercommunicators (not covered here).
+		With MPI-3, collective operations can be blocking or non-blocking. Only blocking operations are covered in this tutorial.<br>
+
+		MPI_Barrier<br>
+
+			Synchronization operation. Creates a barrier synchronization in a group. Each task, when reaching the MPI_Barrier call, blocks until all tasks in the group reach the same MPI_Barrier call. Then all tasks are free to proceed.
+				MPI_Barrier (comm)
+
+		MPI_Bcast<br>
+
+			Data movement operation. Broadcasts (sends) a message from the process with rank "root" to all other processes in the group. 
+				MPI_Bcast (&buffer,count,datatype,root,comm)
+		MPI_Scatter<br>
+
+			Data movement operation. Distributes distinct messages from a single source task to each task in the group. 
+					MPI_Scatter (&sendbuf,sendcnt,sendtype,&recvbuf, recvcnt,recvtype,root,comm) 
+
+		MPI_Gather<br>
+
+		Data movement operation. Gathers distinct messages from each task in the group to a single destination task. This routine is the reverse operation of MPI_Scatter. <br>
+			MPI_Gather (&sendbuf,sendcnt,sendtype,&recvbuf, recvcount,recvtype,root,comm) 
+		MPI_Allgather<br>
+
+			Data movement operation. Concatenation of data to all tasks in a group. Each task in the group, in effect, performs a one-to-all broadcasting operation within the group. 
+				MPI_Allgather (&sendbuf,sendcount,sendtype,&recvbuf, recvcount,recvtype,comm) 
+		
+		MPI_Reduce<br>
+
+		Collective computation operation. Applies a reduction operation on all tasks in the group and places the result in one task. 
+			MPI_Reduce (&sendbuf,&recvbuf,count,datatype,op,root,comm) 
+
+		MPI_Allreduce<br>
+
+		Collective computation operation + data movement. Applies a reduction operation and places the result in all tasks in the group. This is equivalent to an MPI_Reduce followed by an MPI_Bcast.
+			MPI_Allreduce (&sendbuf,&recvbuf,count,datatype,op,comm) 
+		MPI_Reduce_scatter<br>
+
+			Collective computation operation + data movement. First does an element-wise reduction on a vector across all tasks in the group. Next, the result vector is split into disjoint segments and distributed across the tasks. This is equivalent to an MPI_Reduce followed by an MPI_Scatter operation. 
+				MPI_Reduce_scatter (&sendbuf,&recvbuf,recvcount,datatype, op,comm)
+
+
+		MPI_Alltoall<br>
+
+			Data movement operation. Each task in a group performs a scatter operation, sending a distinct message to all the tasks in the group in order by index. 
+				MPI_Alltoall (&sendbuf,sendcount,sendtype,&recvbuf, recvcnt,recvtype,comm) 
+
+		MPI_Scan<br>
+
+			Performs a scan operation with respect to a reduction operation across a task group. 
+					MPI_Scan (&sendbuf,&recvbuf,count,datatype,op,comm) 
+
+
+</p>
+<a href="https://computing.llnl.gov/tutorials/mpi/">For more</a><br><br>
+<input type='button' value='Previous' id="prev">
+ </body>
+</html>

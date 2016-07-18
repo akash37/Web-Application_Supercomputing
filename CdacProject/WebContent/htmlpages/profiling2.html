@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         $(document).ready(function(){
+            $("#next").click(function(){
+                $('#content').load('htmlpages//profiling3.html');
+            }); 
+          });
+         
+         $(document).ready(function(){
+             $("#prev").click(function(){
+                 $('#content').load('htmlpages//profiling1.html');
+             }); 
+           });
+      </script>
+   </head>
+   <body>
+     <p><b>Performance Tools Overview</b>
+    Timing mechanisms<br>
+      Stopwatch : UNIX time tool<br>
+    Optimizing compiler (easy way)
+    System load monitors<br>
+      vmstat , iostat , perfmon.exe, Vtune Counter
+    Software profiler<br>
+      Gprof, VTune, Visual C++ Profiler, IBM Quantify
+    Memory debugger/profiler<br>
+      Valgrind , IBM Purify, Parasoft Insure++
+</p>
+<p><b>Using Optimizing Compilers</b><br>
+    Always use compiler optimization settings to build an application for use with performance tools
+    Understanding and using all the features of an optimizing compiler is required for maximum performance with the least effort
+
+<br>Optimizing Compilers: Conclusions<br>
+    Some processor-specific options still do not appear to be a major factor in producing fast code
+    More optimizations do not guarantee faster code
+    Different algorithms are most effective with different optimizations
+    Idea : using statistics gathered by profiler as input for compiler/linker
+
+</p>
+<input type='button' value='Previous' id="prev">
+<input type='button' value='Next' id="next">
+ </body>
+</html>

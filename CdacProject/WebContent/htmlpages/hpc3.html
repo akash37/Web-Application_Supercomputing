@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         $(document).ready(function(){
+            $("#next").click(function(){
+                $('#content').load('htmlpages//hpc4.html');
+            }); 
+          });
+         
+         $(document).ready(function(){
+             $("#prev").click(function(){
+                 $('#content').load('htmlpages//hpc2.html');
+             }); 
+           });
+      </script>
+   </head>
+   <body>
+    <p>
+<b>Why Use Parallel Computing?</b>
+In the natural world, many complex, interrelated events are happening at the same time, yet within a
+temporal sequence.
+Compared to serial computing, parallel computing is much better suited for modeling, simulating and
+understanding complex, real world phenomena.
+<br>
+Main Reasons:<br>
+SAVE TIME AND/OR MONEY<br>
+SOLVE LARGER / MORE COMPLEX PROBLEMS<br>
+PROVIDE CONCURRENCY<br><br>
+<input type='button' value='Previous' id="prev">
+<input type='button' value='Next' id="next">
+ </body>
+</html>

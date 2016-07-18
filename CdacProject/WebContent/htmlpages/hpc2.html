@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         $(document).ready(function(){
+            $("#next").click(function(){
+                $('#content').load('htmlpages//hpc3.html');
+            }); 
+          });
+         
+         $(document).ready(function(){
+             $("#prev").click(function(){
+                 $('#content').load('htmlpages//hpc1.html');
+             }); 
+           });
+      </script>
+   </head>
+   <body>
+      <p><b>Parallel Computing:</b><br>
+In the simplest sense, parallel computing is the simultaneous use of multiple compute resources to solve a computational problem<br>
+A problem is broken into discrete parts that can be solved concurrently<br>
+Each part is further broken down to a series of instructions<br>
+Instructions from each part execute simultaneously on different processors<br>
+An overall control/coordination mechanism is employed<br>
+The computational problem should be able to:<br>
+Be broken apart into discrete pieces of work that can be solved simultaneously;<br>
+Execute multiple program instructions at any moment in time;<br>
+Be solved in less time with multiple compute resources than with a single compute resource.<br>
+The compute resources are typically:<br>
+A single computer with multiple processors/cores<br>
+An arbitrary number of such computers connected by a network</p>
+<img src="images//parallelProblem.gif"/>
+<br><br>
+<input type='button' value='Previous' id="prev">
+<input type='button' value='Next' id="next">
+ </body>
+</html>

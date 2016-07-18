@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         $(document).ready(function(){
+            $("#next").click(function(){
+                $('#content').load('htmlpages//hpc2.html');
+            }); 
+          });
+      </script>
+   </head>
+   <body>
+     <p><b>Serial Computing:</b><br>
+	Traditionally, software has been written for serial computation:<br>
+	A problem is broken into a discrete series of instructions<br>
+	Instructions are executed sequentially one after another<br>
+	Executed on a single processor<br>
+	Only one instruction may execute at any moment in time</p>
+	<img src="images//serialProblem.gif"/>
+	<br><br>
+<input type='button' value='Next' id="next">
+ </body>
+</html>

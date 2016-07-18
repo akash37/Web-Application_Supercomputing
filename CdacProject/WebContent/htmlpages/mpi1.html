@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         $(document).ready(function(){
+            $("#next").click(function(){
+                $('#content').load('htmlpages//mpi2.html');
+            }); 
+          });
+      </script>
+   </head>
+   <body>
+    <p><b>What is MPI?</b><br>
+a)M P I = Message Passing Interface<br>
+b)MPI is a specification for the developers and users of message passing libraries. 
+By itself, it is NOT a library - but rather the specification of what such a library should be.<br>
+c)MPI primarily addresses the message-passing parallel programming model: data is moved from the
+ address space of one process to that of another process through cooperative operations on each process.<br>
+d)Simply stated, the goal of the Message Passing Interface is to provide a widely used standard for writing message passing programs.
+The interface attempts to be:<br>
+	Practical<br>
+	Portable<br>
+	Efficient<br>
+	Flexible<br>
+e)The MPI standard has gone through a number of revisions, with the most recent version being MPI-3.x <br>
+f)Interface specifications have been defined for C and Fortran90 language bindings:<br>
+	C++ bindings from MPI-1 are removed in MPI-3<br>
+	MPI-3 also provides support for Fortran 2003 and 2008 features<br>
+g)Actual MPI library implementations differ in which version and features of the MPI standard they support. Developers/users will need to be aware of this.<br>
+</p>
+<input type='button' value='Next' id="next">
+ </body>
+</html>

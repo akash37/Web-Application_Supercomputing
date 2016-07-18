@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         $(document).ready(function(){
+            $("#next").click(function(){
+                $('#content').load('htmlpages//cuda2.html');
+            }); 
+          });
+      </script>
+   </head>
+   <body>
+   				<strong>CUDA</strong>
+				<p>
+CUDA is a parallel computing platform and application programming interface (API)
+ model created by NVIDIA
+It allows software developers to use a CUDA-enabled graphics processing unit
+ (GPU) for general purpose processing-an approach known as GPGPU
+ The CUDA platform is a software layer that gives direct access to the GPU's
+ virtual instruction set and parallel computational elements, for the execution
+ of compute kernels.</p>
+<p>
+The CUDA platform is designed to work with programming languages such as C,
+ C++ and Fortran. This accessibility makes it easier for specialists in 
+parallel programming to utilize GPU resources, as opposed to previous API
+ solutions like Direct3D and OpenGL, which required advanced skills in graphics
+ programming. Also, CUDA supports programming frameworks such as OpenACC and
+ OpenCL. When it was first introduced by NVIDIA, the name CUDA
+ was an acronym for Compute Unified Device Architecture,
+ but NVIDIA subsequently dropped the use of the acronym</p>
+<input type='button' value='Next' id="next">
+ </body>
+</html>

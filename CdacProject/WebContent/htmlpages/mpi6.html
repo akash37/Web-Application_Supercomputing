@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         $(document).ready(function(){
+            $("#next").click(function(){
+                $('#content').load('htmlpages//mpi7.html');
+            }); 
+          });
+         
+         $(document).ready(function(){
+             $("#prev").click(function(){
+                 $('#content').load('htmlpages//mpi5.html');
+             }); 
+           });
+      </script>
+   </head>
+   <body>
+     <p>
+					<b>MPI Message Passing Routine Arguments</b><br>
+		MPI point-to-point communication routines generally have an argument list that takes one of the following formats:<br>
+		Blocking sends	MPI_Send(buffer,count,type,dest,tag,comm)<br>
+		Non-blocking sends	MPI_Isend(buffer,count,type,dest,tag,comm,request)<br>
+		Blocking receive	MPI_Recv(buffer,count,type,source,tag,comm,status)<br>
+		Non-blocking receive	MPI_Irecv(buffer,count,type,source,tag,comm,request)<br>
+
+	Buffer<br>
+		Program (application) address space that references the data that is to be sent or received. In most cases, this is simply the variable name that is be sent/received. For C programs, this argument is passed by reference and usually must be prepended with an ampersand: &var1
+	Data Count<br>
+		Indicates the number of data elements of a particular type to be sent.
+	Data Type<br>
+		For reasons of portability, MPI predefines its elementary data types. The table below lists those required by the standard.
+
+	Destination<br>
+		An argument to send routines that indicates the process where a message should be delivered. Specified as the rank of the receiving process.
+	Source<br>
+		An argument to receive routines that indicates the originating process of the message. Specified as the rank of the sending process. This may be set to the wild card MPI_ANY_SOURCE to receive a message from any task.
+	Tag<br>
+		Arbitrary non-negative integer assigned by the programmer to uniquely identify a message. Send and receive operations should match message tags. For a receive operation, the wild card MPI_ANY_TAG can be used to receive any message regardless of its tag. The MPI standard guarantees that integers 0-32767 can be used as tags, but most implementations allow a much larger range than this.
+	Communicator<br>
+		Indicates the communication context, or set of processes for which the source or destination fields are valid. Unless the programmer is explicitly creating new communicators, the predefined communicator MPI_COMM_WORLD is usually used.
+	Status<br>
+		For a receive operation, indicates the source of the message and the tag of the message. In C, this argument is a pointer to a predefined structure MPI_Status (ex. stat.MPI_SOURCE stat.MPI_TAG). In Fortran, it is an integer array of size MPI_STATUS_SIZE (ex. stat(MPI_SOURCE) stat(MPI_TAG)). Additionally, the actual number of bytes received is obtainable from Status via the MPI_Get_count routine.
+	Request<br>
+		Used by non-blocking send and receive operations. Since non-blocking operations may return before the requested system buffer space is obtained, the system issues a unique "request number". The programmer uses this system assigned "handle" later (in a WAIT type routine) to determine completion of the non-blocking operation. In C, this argument is a pointer to a predefined structure MPI_Request. In Fortran, it is an integer.
+</p>
+<input type='button' value='Previous' id="prev">
+<input type='button' value='Next' id="next">
+ </body>
+</html>

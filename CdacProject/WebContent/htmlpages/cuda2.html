@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+      $(document).ready(function(){
+          $("#next").click(function(){
+              $('#content').load('htmlpages//cuda3.html');
+          }); 
+        });
+         $(document).ready(function(){
+             $("#prev").click(function(){
+                 $('#content').load('htmlpages//cuda1.html');
+             }); 
+           });
+      </script>
+   </head>
+   <body>
+   <strong>Advantages</strong><br>
+ <p>
+CUDA has several advantages over traditional general-purpose computation on GPUs (GPGPU) using graphics APIs:<br>
+1.Scattered reads-code can read from arbitrary addresses in memory<br>
+2.Unified virtual memory (CUDA 4.0 and above)<br>
+3.Unified memory (CUDA 6.0 and above)<br>
+4.Shared memory-CUDA exposes a fast shared memory region that can be shared amongst threads. This can be used as a user-managed cache, enabling higher bandwidth than is possible using texture lookups.
+5.Faster downloads and readbacks to and from the GPU<br>
+6.Full support for integer and bitwise operations, including integer texture lookups<br></p>
+<input type='button' value='Previous' id="prev">
+<input type='button' value='Next' id="next">
+ </body>
+</html>

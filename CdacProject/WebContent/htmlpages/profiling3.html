@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         $(document).ready(function(){
+             $("#prev").click(function(){
+                 $('#content').load('htmlpages//profiling2.html');
+             }); 
+           });
+      </script>
+   </head>
+   <body>
+     <p><b>Using Optimizing Compilers</b><br>
+    Always use compiler optimization settings to build an application for use with performance tools
+    Understanding and using all the features of an optimizing compiler is required for maximum performance with the least effort
+
+<br>Optimizing Compilers: Conclusions<br>
+    Some processor-specific options still do not appear to be a major factor in producing fast code
+    More optimizations do not guarantee faster code
+    Different algorithms are most effective with different optimizations
+    Idea : using statistics gathered by profiler as input for compiler/linker
+
+</p>
+<p><b>Profilers</b>
+    Profiler may show time elapsed in each function and its descendants number of calls , call-graph (some)
+    Profilers use  either instrumentation or sampling to identify performance issues<br>
+    </p>
+GNU gprof<br>
+    Instrumenting profiler for every UNIX-like system<br>
+<b>Using gprof GNU profiler</b><br>
+    Compile and link your program with profiling enabled<br>
+      cc -g -c myprog.c utils.c -pg <br>
+      cc -o myprog myprog.o utils.o -pg <br>
+    Execute your program to generate a profile data file<br>
+      Program will run normally (but slower) and will write the profile data into a file called gmon.out just before exiting<br>
+      Program should exit using exit() function<br>
+    Run gprof to analyze the profile data<br>
+      gprof a.out<br>
+<b>Using gprof GNU profiler</b><br>
+    Compile and link your program with profiling enabled<br>
+      cc -g -c myprog.c utils.c -pg <br>
+      cc -o myprog myprog.o utils.o -pg <br>
+    Execute your program to generate a profile data file<br>
+      Program will run normally (but slower) and will write the profile data into a file called gmon.out just before exiting<br>
+      Program should exit using exit() function<br>
+    Run gprof to analyze the profile data<br>
+      gprof a.out<br>
+<b>Understanding Flat Profile</b>
+    The flat profile shows the total amount of time your program spent executing each function.<br> 
+    If a function was not compiled for profiling, and didn't run long enough to show up on the program counter histogram, it will be indistinguishable from a function that was never called<br><br>
+<b>How gprof works</b>
+    Instruments program to count calls<br>
+    Watches the program running, samples the PC every 0.01 sec<br>
+      Statistical inaccuracy :  fast function may take 0 or 1 samples<br>
+      Run should be long enough comparing with sampling period<br>
+      Combine several gmon.out files into single report<br>
+    The output from gprof gives no indication of parts of your program that are limited by I/O or swapping bandwidth. This is because samples of the program counter are taken at fixed intervals of run time<br>
+    number-of-calls figures are derived by counting, not sampling. They are completely accurate and will not vary from run to run if your program is deterministic 
+    Profiling with inlining and other optimizations needs care<br><br>
+<b>VTune performance analyzer</b><br>
+    To squeeze every bit of power out of Intel architecture !<br>
+<b>VTune Modes/Features</b><br>
+    Time- and Event-Based, System-Wide Sampling provides developers with the most accurate representation of their software's actual performance with negligible overhead<br> 
+    Call Graph Profiling provides developers with a pictorial view of program flow to quickly identify critical functions and call sequences<br>
+<b>Call Graph Mode</b><br>
+    Provides with a pictorial view of program flow to quickly identify critical functions and call sequences<br>
+    Call graph profiling reveals: <br>
+      Structure of your program on a function level<br>
+      Number of times a function is called from a  particular location<br> 
+      The time spent in each function <br>
+      Functions on a critical path. <br>
+<b>Call Graph Mode</b><br>
+    Provides with a pictorial view of program flow to quickly identify critical functions and call sequences<br>
+    Call graph profiling reveals: <br>
+      Structure of your program on a function level<br>
+      Number of times a function is called from a  particular location<br> 
+      The time spent in each function <br>
+      Functions on a critical path. <br>
+<b>VTune Summary</b><br>
+    Pros:  Allows to get best possible performance out of Intel architecture<br>
+    Cons: Extreme tuning requires deep understanding of processor and OS internals<br>
+<input type='button' value='Previous' id="prev">
+ </body>
+</html>

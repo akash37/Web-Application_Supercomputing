@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         $(document).ready(function(){
+            $("#next").click(function(){
+                $('#content').load('htmlpages//mpi6.html');
+            }); 
+          });
+         
+         $(document).ready(function(){
+             $("#prev").click(function(){
+                 $('#content').load('htmlpages//mpi4.html');
+             }); 
+           });
+      </script>
+   </head>
+   <body>
+     
+<p><b>Point to Point Communication Routines</b><br>
+		Types of Point-to-Point Operations:<br>
+	MPI point-to-point operations typically involve message passing between two, and only two, different MPI tasks. One task is performing a send operation and the other task is performing a matching receive operation.
+	There are different types of send and receive routines used for different purposes. For example:
+		Synchronous send<br>
+		Blocking send / blocking receive<br>
+		Non-blocking send / non-blocking receive<br>
+		Buffered send<br>
+		Combined send/receive<br>
+		"Ready" send<br>
+	Any type of send routine can be paired with any type of receive routine.
+	MPI also provides several routines associated with send - receive operations, such as those used to wait for a message's arrival or probe to find out if a message has arrived.<br>
+
+		Blocking vs. Non-blocking:<br>
+	Most of the MPI point-to-point routines can be used in either blocking or non-blocking mode.<br>
+	Blocking:<br>
+		A blocking send routine will only "return" after it is safe to modify the application buffer (your send data) for reuse. Safe means that modifications will not affect the data intended for the receive task. Safe does not imply that the data was actually received - it may very well be sitting in a system buffer.<br>
+		A blocking send can be synchronous which means there is handshaking occurring with the receive task to confirm a safe send.<br>
+		A blocking send can be asynchronous if a system buffer is used to hold the data for eventual delivery to the receive.<br>
+		A blocking receive only "returns" after the data has arrived and is ready for use by the program.<br>
+	Non-blocking:<br>
+		Non-blocking send and receive routines behave similarly - they will return almost immediately. They do not wait for any communication events to complete, such as message copying from user memory to system buffer space or the actual arrival of message.<br>
+		Non-blocking operations simply "request" the MPI library to perform the operation when it is able. The user can not predict when that will happen.
+		It is unsafe to modify the application buffer (your variable space) until you know for a fact the requested non-blocking operation was actually performed by the library. There are "wait" routines used to do this.<br>
+		Non-blocking communications are primarily used to overlap computation with communication and exploit possible performance gains.</p>
+<input type='button' value='Previous' id="prev">
+<input type='button' value='Next' id="next">
+ </body>
+</html>

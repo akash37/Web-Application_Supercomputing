@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+      $(document).ready(function(){
+          $("#next").click(function(){
+              $('#content').load('htmlpages//arch3.html');
+          }); 
+        });
+         $(document).ready(function(){
+             $("#prev").click(function(){
+                 $('#content').load('htmlpages//arch1.html');
+             }); 
+           });
+      </script>
+   </head>
+   <body>
+    <strong>Non-Uniform Memory Access (NUMA):</strong>
+  <UL>
+  <LI>Often made by physically linking two or more SMPs 
+    <LI>One SMP can directly access memory of another SMP 
+    <LI>Not all processors have equal access time to all memories 
+    <LI>Memory access across link is slower
+    <LI>If cache coherency is maintained, then may also be called CC-NUMA - 
+        Cache Coherent NUMA 
+    </UL><br>
+    <img src="images//numa.gif"/><br>
+<input type='button' value='Previous' id="prev">
+<input type='button' value='Next' id="next">
+ </body>
+</html>

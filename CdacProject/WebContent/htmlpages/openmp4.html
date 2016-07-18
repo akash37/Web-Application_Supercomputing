@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         $(document).ready(function(){
+            $("#page5").click(function(){
+                $('#content').load('htmlpages//openmp5.html');
+            }); 
+          });    
+         $(document).ready(function(){
+             $("#page3").click(function(){
+                 $('#content').load('htmlpages//openmp3.html');
+             }); 
+           });
+      </script>
+   </head>
+   <body>
+<p>
+<b>Methods to create threads</b><br>
+a)num_thread(num);<br>
+b)omp_set_num_thread(num);<br>
+c)export OMP_NUM_THREADS=4;<br>
+</p>
+<input type='button' value='Previous' id="page3">
+<input type='button' value='Next' id="page5">
+ </body>
+</html>

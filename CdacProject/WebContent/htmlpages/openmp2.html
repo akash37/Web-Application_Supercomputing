@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         $(document).ready(function(){
+            $("#page3").click(function(){
+                $('#content').load('htmlpages//openmp3.html');
+            }); 
+          });    
+         $(document).ready(function(){
+             $("#page1").click(function(){
+                 $('#content').load('htmlpages//openmp1.html');
+             }); 
+           });
+      </script>
+   </head>
+   <body>
+<p><b>Goals of OpenMP</b><br>
+Standardization:<br>
+Provide a standard among a variety of shared memory architectures/platforms<br>
+Jointly defined and endorsed by a group of major computer hardware and software vendors
+Lean and Mean:<br>
+Establish a simple and limited set of directives for programming shared memory machines.<br>
+Significant parallelism can be implemented by using just 3 or 4 directives.<br>
+This goal is becoming less meaningful with each new release, apparently.<br>
+Ease of Use:<br>
+Provide capability to incrementally parallelize a serial program, unlike message-passing libraries which typically require an all or nothing approach<br>
+Provide the capability to implement both coarse-grain and fine-grain parallelism<br>
+Portability:<br>
+The API is specified for C/C++ and Fortran<br>
+Public forum for API and membership<br>
+Most major platforms have been implemented including Unix/Linux platforms and Windows<br>
+</p>
+<p><input type='button' value='Previous' id="page1">     <input type='button' value='Next' id="page3"></p>
+ </body>
+</html>

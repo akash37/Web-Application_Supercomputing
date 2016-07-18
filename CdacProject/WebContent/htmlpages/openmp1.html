@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         $(document).ready(function(){
+            $("#page2").click(function(){
+                $('#content').load('htmlpages//openmp2.html');
+            }); 
+          });
+      </script>
+   </head>
+   <body>
+      <p><b>What is OpenMP?</b><br>
+An abbreviation for: Open Multi-Processing<br>
+An Application Program Interface (API) that may be used to explicitly direct multi-threaded, shared memory parallelism<br>
+Comprised of three primary API components:<br>
+Compiler Directives<br>
+Runtime Library Routines<br>
+Environment Variables<br></p>
+<input type='button' value='Next' id="page2">
+ </body>
+</html>

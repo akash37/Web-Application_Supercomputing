@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+      $(document).ready(function(){
+          $("#prev").click(function(){
+              $('#content').load('htmlpages//cuda2.html');
+          }); 
+        });
+      </script>
+   </head>
+   <body>
+  <strong>Limitations</strong><br><br>
+1.CUDA does not support the full C standard, as it runs
+ host code through a C++ compiler, which makes some valid C 
+(but invalid C++) code fail to compile<br><br>
+2.Interoperability with rendering languages such as OpenGL
+ is one-way, with OpenGL having access to registered CUDA memory
+ but CUDA not having access to OpenGL memory.<br><br>
+3.Copying between host and device memory may 
+incur a performance hit due to system bus bandwidth
+ and latency (this can be partly alleviated with asynchronous
+ memory transfers, handled by the GPU's DMA engine)<br><br>
+4.Threads should be running in groups of at least 32
+ for best performance, with total number of threads numbering
+ in the thousands. Branches in the program code do not affect 
+performance significantly, provided that each of 32 threads takes
+ the same execution path; the SIMD execution model becomes a 
+significant limitation for any inherently divergent task
+ (e.g. traversing a space partitioning data structure during ray tracing).<br><br>
+5.Unlike OpenCL, CUDA-enabled GPUs are only available from Nvidia.<br><br>
+6.No emulator or fallback functionality is available for modern revisions.<br><br>
+7.Valid C/C++ may sometimes be flagged and prevent
+ compilation due to optimization techniques the compiler 
+is required to employ to use limited resources.<br><br>
+8.A single process must run spread across multiple disjoint memory
+ spaces, unlike other C language runtime environments.<br><br>
+9.C++ Run-Time Type Information (RTTI) is not supported in CUDA code,
+ due to lack of support in the underlying hardware.<br><br>
+10.Exception handling is not supported in CUDA code due to performance 
+overhead that would be incurred with many thousands of parallel threads running.<br><br>
+11.CUDA (with compute capability 2.x) allows a subset of C++ class
+ functionality, for example member functions may not be virtual
+ (this restriction will be removed in some future release).<br><br>
+ <a href="https://en.wikipedia.org/wiki/CUDA">For more</a><br><br>
+<input type='button' value='Previous' id="prev">
+ </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         $(document).ready(function(){
+             $("#prev").click(function(){
+                 $('#content').load('htmlpages//arch4.html');
+             }); 
+           });
+      </script>
+   </head>
+   <body>
+<p>
+<strong>Advantages of Distributed Memory:</strong>
+    <UL>
+    <LI>Memory is scalable with the number of processors. Increase the number of    
+        processors and the size of memory increases proportionately. 
+    <LI>Each processor can rapidly access its own memory without interference
+        and without the overhead incurred with trying to maintain global cache
+        coherency.
+    <LI>Cost effectiveness: can use commodity, off-the-shelf processors and
+        networking.
+    </UL>
+<strong>Disadvantages of Distributed Memory:</strong>
+    <UL>
+    <LI>The programmer is responsible for many of the details associated with
+        data communication between processors. 
+    <LI>It may be difficult to map existing data structures, based on global
+        memory, to this memory organization. 
+    <LI>Non-uniform memory access times - data residing on a remote node
+        takes longer to access than node local data.
+    </UL>
+</p>
+<a href="https://computing.llnl.gov/tutorials/parallel_comp/#MemoryArch">For more</a><br><br>
+<input type='button' value='Previous' id="prev">
+ </body>
+</html>

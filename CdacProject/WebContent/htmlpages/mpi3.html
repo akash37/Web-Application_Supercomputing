@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         $(document).ready(function(){
+            $("#next").click(function(){
+                $('#content').load('htmlpages//mpi4.html');
+            }); 
+          });
+         
+         $(document).ready(function(){
+             $("#prev").click(function(){
+                 $('#content').load('htmlpages//mpi2.html');
+             }); 
+           });
+      </script>
+   </head>
+   <body>
+      <p><b>Reasons for Using MPI:</b><br>
+Standardization - MPI is the only message passing library that can be considered a standard. It is supported on virtually all HPC platforms. Practically, it has replaced all previous message passing libraries.<br>
+Portability - There is little or no need to modify your source code when you port your application to a different platform that supports (and is compliant with) the MPI standard.<br>
+Performance Opportunities - Vendor implementations should be able to exploit native hardware features to optimize performance. Any implementation is free to develop optimized algorithms.<br>
+Functionality - There are over 430 routines defined in MPI-3, which includes the majority of those in MPI-2 and MPI-1.
+	 Most MPI programs can be written using a dozen or less routines<br>
+Availability - A variety of implementations are available, both vendor and public domain.<br></p>
+<p><b>Getting Started</b><br>
+	MPI include file -->program begins -->Initialize MPI Environment-->Do work and make message passing calls-->Terminate MPI Environment-->program ends<br>
+ 	Header File:<br>
+		Required for all programs that make MPI library calls.
+		C include file: #include "mpi.h" <br>
+	Format of MPI Calls: <br>C names are case sensitive; Fortran names are not.
+				Programs must not declare variables or functions with names beginning with the prefix MPI_ or PMPI_ (profiling interface).<br>
+	Communicators and Groups:<br>
+				MPI uses objects called communicators and groups to define which collection of processes may communicate with each other.
+				Most MPI routines require you to specify a communicator as an argument.
+				Communicators and groups will be covered in more detail later. For now, simply use MPI_COMM_WORLD whenever a communicator is required - it is the predefined communicator that includes all of your MPI processes.
+     Rank:<br>  Within a communicator, every process has its own unique, integer identifier assigned by the system when the process initializes. A rank is sometimes also called a "task ID". Ranks are contiguous and begin at zero.
+		Used by the programmer to specify the source and destination of messages. Often used conditionally by the application to control program execution (if rank=0 do this / if rank=1 do that).
+</p>
+<input type='button' value='Previous' id="prev">
+<input type='button' value='Next' id="next">
+ </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         $(document).ready(function(){
+            $("#next").click(function(){
+                $('#content').load('htmlpages//arch4.html');
+            }); 
+          });
+         $(document).ready(function(){
+             $("#prev").click(function(){
+                 $('#content').load('htmlpages//arch2.html');
+             }); 
+           });
+      </script>
+   </head>
+   <body>
+<strong>Advantages of Shared Memory:</strong>
+    <UL>
+    <LI>Global address space provides a user-friendly programming perspective 
+        to memory
+    <LI>Data sharing between tasks is both fast and uniform due to the proximity 
+        of memory to CPUs
+    </UL>
+
+<strong>Disadvantages of Shared Memory:</strong>
+<UL>
+<LI>Primary disadvantage is the lack of scalability between memory and CPUs.
+    Adding more CPUs can geometrically increases traffic on the shared
+    memory-CPU path, and for cache coherent systems, geometrically increase 
+    traffic associated with cache/memory management. 
+<LI>Programmer responsibility for synchronization constructs that ensure
+    "correct" access of global memory. 
+</UL>
+<input type='button' value='Previous' id="prev">
+<input type='button' value='Next' id="next">
+ </body>
+</html>

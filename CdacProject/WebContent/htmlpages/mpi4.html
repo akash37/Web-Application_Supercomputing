@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="http://code.jquery.com/jquery-1.4.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         $(document).ready(function(){
+            $("#next").click(function(){
+                $('#content').load('htmlpages//mpi5.html');
+            }); 
+          });
+         
+         $(document).ready(function(){
+             $("#prev").click(function(){
+                 $('#content').load('htmlpages//mpi3.html');
+             }); 
+           });
+      </script>
+   </head>
+   <body>
+     <p><b>Environment Management Routines</b><br>
+		This group of routines is used for interrogating and setting the MPI execution environment, and covers an assortment of purposes, such as initializing and terminating the MPI environment, querying a rank's identity, querying the MPI library's version, etc. 
+		Most of the commonly used ones are described below.
+		<br>
+		MPI_Init:<br>Initializes the MPI execution environment. This function must be called in every MPI program, must be called before any other MPI functions and must be called only once in an MPI program. For C programs, MPI_Init may be used to pass the command line arguments to all processes,
+		 although this is not required by the standard and is implementation dependent.
+				MPI_Init (&argc,&argv) 
+		MPI_Comm_size<br>
+			Returns the total number of MPI processes in the specified communicator, such as MPI_COMM_WORLD. 
+			If the communicator is MPI_COMM_WORLD, then it represents the number of MPI tasks available to your application.
+				MPI_Comm_size (comm,&size) 
+		MPI_Comm_rank<br>
+			Returns the rank of the calling MPI process within the specified communicator. 
+			Initially, each process will be assigned a unique integer rank between 0 and number of tasks - 1 within the communicator MPI_COMM_WORLD. 
+			This rank is often referred to as a task ID. 
+			If a process becomes associated with other communicators, it will have a unique rank within each of these as well.
+				MPI_Comm_rank (comm,&rank) 
+		MPI_Abort<br>
+
+			Terminates all MPI processes associated with the communicator. In most MPI implementations it terminates ALL processes regardless of the communicator specified.
+			MPI_Abort (comm,errorcode)
+		MPI_Get_processor_name<br>
+
+		Returns the processor name. Also returns the length of the name. The buffer for "name" must be at least MPI_MAX_PROCESSOR_NAME characters in size. What is returned into "name" is implementation dependent - may not be the same as the output of the "hostname" or "host" shell commands.
+			MPI_Get_processor_name (&name,&resultlength)
+		MPI_Finalize<br>
+			Terminates the MPI execution environment. This function should be the last MPI routine called in every MPI program - no other MPI routines may be called after it.
+				MPI_Finalize ()	</p>
+<input type='button' value='Previous' id="prev">
+<input type='button' value='Next' id="next"> </body>
+</html>
